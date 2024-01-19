@@ -1,0 +1,359 @@
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('./fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('./fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+:root {
+    --main-color: #8E6CEA;
+    --title-color: #C6FCA1;
+    --stroke-color: #BA79FE;
+    --eccent-color: #96FF43;
+    --description-color: #808191;
+
+
+    --width: 360px;
+    --text-width: 305px;
+    --radius: 28px;
+}
+
+body {
+    background: #B8B6F4;
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+    font-size: 13px;
+}
+
+
+%align {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: var(--width);
+    text-align: center;
+    border-radius: var(--radius);
+    background-color: #ffffff;
+  }
+
+  .radio {
+    appearance: none;
+  }
+  .title {
+    width: var(--text-width);
+    height: max-content;
+    background: var(--main-color);
+    color: var(--title-color);
+    text-align: center;
+    font-size: 21px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  .column {
+    width: var(--text-width);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Montserrat-Bold;
+    font-size: 24px;
+  
+    &__price {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 56px;
+      width: 94px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    input {
+        z-index: 1;
+        position: relative;
+    }
+
+    input:checked + span {
+        background: var(--eccent-color);
+    }
+
+    span {
+        margin-left: 5px;
+        margin-top: -56px;
+        background: rgba(186, 121, 254, 0.15);
+        z-index: -6;
+    }
+  }
+  .line {
+    border-width: 0 0 5px;
+    border-style: solid;
+    border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 1" width="10" height="3"><circle fill="rgb(161, 144, 241)" cx="1" cy="0.5" r="0.5"/></svg>')
+      0 0 100% repeat;
+    width: 275px;
+  }
+  .description {
+    color: var(--description-color);
+    font-size: 11px;
+    font-weight: 400;
+    font-family: Montserrat-Regular;
+  }
+  .switch {
+    &__container {
+      width: 54px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      border-radius: 22px;
+      background: rgba(142, 108, 234, 0.4);
+      z-index: -1;
+
+    }
+  
+    &__toogle {
+      width: 24px;
+      height: 24px;
+      margin-left: 3px;
+      background: #ffffff;
+      border-radius: 100px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .switch-on {
+    &__container {
+      width: 54px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      border-radius: 22px;
+      background: var(--eccent-color);
+      z-index: -1;
+
+    }
+  
+    &__toogle {
+      width: 24px;
+      height: 24px;
+      margin-left: 26px;
+      background: #ffffff;
+      border-radius: 100px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+  .check {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    background: #d3dbec;
+    appearance: none;
+    cursor: pointer;
+  }
+  .check:checked {
+    background: url(./img/checkbox.svg);
+    background-size: cover;
+    background-position: center;
+  }
+  .params {
+    width: var(--text-width);
+    justify-content: left;
+    font-size: 14px;
+    background: #EFF2F9;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+  
+    &__counter {
+      display: flex;
+    }
+  
+    &__check {
+      margin-right: 17px;
+      margin-left: 17px;
+      margin-top: 9px;
+    }
+  }
+  .input-text {
+    height: 56px;
+    color: var(--stroke-color);
+    border: 2px solid var(--stroke-color);
+    border-radius: 15px;
+    text-align: center;
+    font-family: Montserrat-Bold;
+    font-size: 24px;
+  
+    &::placeholder {
+      color: var(--stroke-color);
+      font-family: Montserrat;
+      font-size: 20px;
+    }
+  }
+  .main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  
+    .amount {
+      @extend %align;
+      height: 296px;
+      background: url(./img/block-01.svg);
+      background-size: cover;
+      background-position: center;
+  
+      &__header {
+        margin-top: 48px;
+      }
+  
+      &__input {
+        width: var(--text-width);
+      }
+  
+      &__column {
+        margin: 0;
+      }
+  
+      &__line {
+        position: absolute;
+        z-index: 1;
+      }
+    }
+    .rate {
+      @extend %align;
+      height: 160px;
+      padding-top: -3px;
+    }
+    .pay {
+      @extend %align;
+      height: 314px;
+      justify-content: center;
+  
+      &__container {
+        width: 315px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+      &__textbox {
+        width: 244px;
+        text-align: left;
+      }
+  
+      &__text {
+        margin-bottom: 0px;
+      }
+  
+      &__description {
+        color: var(--description-color);
+        margin-top: 5px;
+      }
+  
+      &__apple-logo {
+        width: 68px;
+        height: 60px;
+      }
+  
+      &__apple-pay {
+        width: var(--text-width);
+        height: 60px;
+        border-radius: 22px;
+        border: 1.5px solid #dde3f1;
+        cursor: pointer;
+      }
+  
+      &__card-pay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--text-width);
+        margin-top: 15px;
+        height: 60px;
+        border-radius: 22px;
+        background: var(--eccent-color);
+        box-shadow: 0px 6px 40px -7px var(--eccent-color);
+        color: #3a414a;
+        font-size: 18px;
+        cursor: pointer;
+      }
+  
+      &__agree {
+        width: 230px;
+        margin-top: 20px;
+        margin-left: -30px;
+        display: flex;
+        text-align: left;
+      }
+      &__check {
+        margin-top: 5px;
+        width: 38px;
+        margin-right: 15px;
+      }
+    }
+    .rate-today {
+      @extend %align;
+      margin-top: 20px;
+      margin-bottom: 20px;    
+      height: 491px;
+      justify-content: center;
+  
+      &__header {
+        width: 306px;
+        height: 50px;
+        margin: 17px;
+        margin-top: 0;
+        margin-bottom: 10px;
+        text-align: left;
+        background: url(./img/bg-rate-today.svg);
+        background-size: cover;
+      }
+  
+      &__question {
+        color: var(--main-color);
+        margin: 0;
+        margin-bottom: 15px;
+      }
+  
+      &__description-container {
+        margin-top: 20px;
+        width: var(--text-width);
+        background: #EFF2F9;
+        text-align: left;
+        border-radius: 10px;
+      }
+  
+      &__description {
+        padding-left: 25px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+    .tip {
+      @extend %align;
+      margin-top: 20px;
+      height: 304px;
+      background: url(./img/block-02.svg);
+      background-size: cover;
+  
+      &__header {
+        margin-top: 45px;
+        margin-left: -70px;
+        width: 207px;
+        height: 49px;
+        display: flex;
+        justify-content: left;
+        text-align: left;
+        background: url(./img/bg-tip.svg);
+        background-size: contain;
+        background-repeat: none;
+      }
+  
+  
+    }
+  }
