@@ -1,6 +1,9 @@
 <script setup></script>
 
 <template>
+  <div class="img-employee">
+    <img src="../src/assets/img/people.png">
+  </div>
   <div class="vue">
     <div class="main">
       <div class="main__amount amount">
@@ -104,14 +107,7 @@
           </p>
         </div>
       </div>
-
-      <Payment
-        :answers="answers"
-        :tipAmount="tipAmount"
-        @returnAmount="returnAmount"
-      />
-
-      <div class="main_tip tip">
+      <div class="main_tip tip" v-if="visiable">
         <p class="tip__header title">How much do you want to tip?</p>
         <input
           type="text"
@@ -155,6 +151,12 @@
           </div>
         </form>
       </div>
+      <Payment
+        :answers="answers"
+        :tipAmount="tipAmount"
+        @returnAmount="returnAmount"
+      />
+
     </div>
   </div>
 </template>
